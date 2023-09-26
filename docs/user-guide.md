@@ -1,1 +1,4 @@
-# User Guide 
+---
+layout: default
+title: User Guide
+---
