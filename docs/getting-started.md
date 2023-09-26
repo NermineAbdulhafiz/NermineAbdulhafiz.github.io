@@ -1,1 +1,4 @@
-# Getting Started
+---
+layout: default
+title: Getting Started
+---
