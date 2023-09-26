@@ -23,7 +23,7 @@ navigation:
     url: /api-reference
 
 # Theme settings 
-theme: jekyll-theme-docs 
+theme: jekyll-theme-minimal
 
 # Plugins 
 plugins:
