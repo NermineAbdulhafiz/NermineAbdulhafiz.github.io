@@ -12,8 +12,6 @@ kramdown:
 
 # Navigation menu
 navigation:
-  - title: Home
-    url: /
 
   - title: Getting Started
     url: /getting-started
