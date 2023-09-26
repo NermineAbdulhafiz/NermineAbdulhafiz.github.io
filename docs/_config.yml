@@ -1,3 +1,40 @@
-theme: jekyll-theme-minimal
-title: Freddy artisanal Halloween candy shop 
-description: Bookmark this to keep an eye on my project updates!
+# Site settings
+title: Freddy Candy Shop Documentation Site 
+description: A comprehensive guide to our products.
+baseurl: /docs
+url: https://username.github.io/my-docs
+
+# Markdown settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# Navigation menu
+navigation:
+  - title: Home
+    url: /
+
+  - title: Getting Started
+    url: /getting-started
+
+  - title: User Guide
+    url: /user-guide
+
+  - title: API Reference
+    url: /api-reference
+
+# Theme settings 
+theme: jekyll-theme-docs 
+
+# Plugins 
+plugins:
+  - jekyll-sitemap
+  - jekyll-feed
+
+# Custom CSS
+
+# Search functionality 
+search_enabled: true 
+search_provider: lunr 
+search_index_path: assets/lunr_index.json 
