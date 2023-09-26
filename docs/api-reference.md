@@ -1,1 +1,4 @@
-# API Reference 
+---
+layout: default
+title: API Reference
+---
