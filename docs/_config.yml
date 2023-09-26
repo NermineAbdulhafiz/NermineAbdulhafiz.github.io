@@ -14,13 +14,13 @@ kramdown:
 navigation:
 
   - title: Getting Started
-    url: /getting-started
+    url: docs/getting-started.md
 
   - title: User Guide
-    url: /user-guide
+    url: docs/user-guide.md
 
   - title: API Reference
-    url: /api-reference
+    url: docs/api-reference.md
 
 # Theme settings 
 theme: jekyll-theme-minimal
