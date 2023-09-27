@@ -13,10 +13,10 @@ kramdown:
 # Navigation menu
 navigation:
   - title: Get started 
-    url: /docs/user-guide.md
+    url: /user-guide.md
 
   - title: API Reference
-    url: /docs/api-reference.html
+    url: /api-reference.html
     
 # Theme settings
 theme: jekyll-theme-minimal
