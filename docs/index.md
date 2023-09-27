@@ -7,6 +7,6 @@ title: Freddy Candy Store API Documentation
 
 ## API Reference
 
-[Click here to view the full API reference](docs/api-reference)
+[Click here to view the full API reference](/api-reference)
 
 
