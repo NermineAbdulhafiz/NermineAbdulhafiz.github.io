@@ -3,9 +3,6 @@ info:
   title: Freddy Candy Store API
   description: |-
     This API contains the essential endpoints to manage the Freddy Candy Store, including handling login, generating access tokens, and querying different information, such as orders and dashboard information. 
-
-    Some useful links:
-    - [User guide](#)
   contact:
     email: support@freddystore.com
   license:
