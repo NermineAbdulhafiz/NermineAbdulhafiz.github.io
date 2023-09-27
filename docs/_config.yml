@@ -11,12 +11,6 @@ kramdown:
   syntax_highlighter: rouge
 
 # Navigation menu
-navigation:
-  - title: User Guide
-    url: /docs/user-guide.md
-
-  - title: API Reference
-    url: /docs/api-reference.html
 
 # Theme settings
 theme: jekyll-theme-minimal
