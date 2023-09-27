@@ -8,7 +8,7 @@ This documentation site provides a comprehensive guide to using Freddy Store API
 
 If you're new to our API, start with our **Get Started** guide. It will walk you through the basics and help you set up your first API request.
 
-[Get Started](/user-guide)
+[Get Started](/get-started)
 
 ## API Reference
 
