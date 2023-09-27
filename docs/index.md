@@ -3,7 +3,7 @@ layout: default
 title: Freddy Candy Store API Documentation
 ---
 
-![Freddy Candy Store Logo](/assets/logo.png)
+![Freddy Candy Store Logo](/assets/logo.svg)
 
 ## API Reference
 
