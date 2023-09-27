@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Freddy Candy Store API documentation
+title: Home
 ---
 
-# Welcome to My API Documentation
+# Welcome to Your API Documentation
 
 This is the homepage of our API documentation site. Here you can find information about our APIs and how to use them.
 
@@ -11,8 +11,8 @@ This is the homepage of our API documentation site. Here you can find informatio
 
 Use the links below to navigate our documentation:
 
-- [API Reference](openapi.yaml)
-- [User Guide](user-guide.md)
+- [API Reference](/docs/api-reference.md)
+- [User Guide](/docs/user-guide.md)
 
 ## Getting Started
 

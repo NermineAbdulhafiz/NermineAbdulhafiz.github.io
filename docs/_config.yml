@@ -1,7 +1,6 @@
 # Site settings
-title: Freddy Candy Shop API Documentation Site 
-description: A comprehensive guide to our products.
-logo: 
+title: Freddy Store API Documentation
+description: A comprehensive guide to using our APIs.
 baseurl: /docs
 url: https://nermineabdulhafiz.github.io
 
@@ -13,24 +12,23 @@ kramdown:
 
 # Navigation menu
 navigation:
-
   - title: User Guide
-    url: docs/user-guide.md
+    url: /docs/user-guide.md
 
   - title: API Reference
-    url: docs/api-reference.md
+    url: /docs/api-reference.md
 
-# Theme settings 
+# Theme settings
 theme: jekyll-theme-minimal
 
-# Plugins 
+# Plugins
 plugins:
   - jekyll-sitemap
   - jekyll-feed
 
 # Custom CSS
 
-# Search functionality 
-search_enabled: true 
-search_provider: lunr 
-search_index_path: assets/lunr_index.json 
+# Search functionality
+search_enabled: true
+search_provider: lunr
+search_index_path: /docs/assets/lunr_index.json
