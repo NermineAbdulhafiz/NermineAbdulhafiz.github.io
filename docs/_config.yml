@@ -1,6 +1,7 @@
 # Site settings
 title: Freddy Candy Shop Documentation Site 
 description: A comprehensive guide to our products.
+logo: 
 baseurl: /docs
 url: https://username.github.io/my-docs
 
