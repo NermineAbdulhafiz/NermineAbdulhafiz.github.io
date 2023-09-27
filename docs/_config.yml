@@ -1,6 +1,6 @@
 # Site settings
 title: Freddy Store API Documentation
-description: A comprehensive guide to using our APIs.
+description: A comprehensive guide to using our APIs
 baseurl: /docs
 url: https://nermineabdulhafiz.github.io
 
@@ -12,12 +12,12 @@ kramdown:
 
 # Navigation menu
 navigation:
-  - title: Get started 
-    url: /user-guide.md
+  - title: Get started
+    url: {{ site.baseurl }}/user-guide.md
 
   - title: API Reference
-    url: /api-reference.html
-    
+    url: {{ site.baseurl }}/api-reference.html
+
 # Theme settings
 theme: jekyll-theme-minimal
 
@@ -31,4 +31,4 @@ plugins:
 # Search functionality
 search_enabled: true
 search_provider: lunr
-search_index_path: /docs/assets/lunr_index.json
+search_index_path: {{ site.baseurl }}/assets/lunr_index.json
