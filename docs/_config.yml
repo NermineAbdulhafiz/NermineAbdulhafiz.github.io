@@ -13,10 +13,10 @@ kramdown:
 # Navigation menu
 navigation:
   - title: Get started
-    url: {{ site.baseurl }}/user-guide.md
+    url: /user-guide.md
 
   - title: API Reference
-    url: {{ site.baseurl }}/api-reference.html
+    url: /api-reference.html
 
 # Theme settings
 theme: jekyll-theme-minimal
@@ -31,4 +31,4 @@ plugins:
 # Search functionality
 search_enabled: true
 search_provider: lunr
-search_index_path: {{ site.baseurl }}/assets/lunr_index.json
+search_index_path: /docs/assets/lunr_index.json
