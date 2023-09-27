@@ -1,23 +1,11 @@
-# Site settings
-title: Freddy Store API Documentation
-description: A comprehensive guide to using our APIs
-
 # Markdown settings
 markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-# Navigation menu
-navigation:
-  - title: Get started
-    url: /user-guide
-
-  - title: API Reference
-    url: /api-reference
-
 # Theme settings
-theme: jekyll-theme-minimal
+theme: jekyll-theme-modernist
 
 # Plugins
 plugins:
