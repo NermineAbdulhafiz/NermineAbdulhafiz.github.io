@@ -1,0 +1,352 @@
+openapi: 3.0.3
+info:
+  title: Freddy Candy Store API
+  description: |-
+    This API contains the essential endpoints to manage the Freddy Candy Store, including handling login, generating access tokens, and querying different information, such as orders and dashboard information. 
+  contact:
+    email: support@freddystore.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  version: 1.0.0
+servers:
+  - url: https://freddy.codesubmit.io
+tags: []
+paths:
+  /login:
+    post:
+      summary: Log into your account
+      description: Logs you into your account on the Freddy Candy Store website. This API call returns a JWT `access_token` valid for 15 mins and a `refresh_token` valid for 30 days. You can use the `access_token` to authorize other actions on your account, such as fetching orders or dashboard information. Use the `refresh_token` to generate a new `access_token`. 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                  description: The username associated with the account.
+                  example: 'Freddy'
+                password:
+                  type: string
+                  description: The password of your account.
+                  example: 'ElmStreet2019'
+      responses:
+        '200':
+          description: Successful login
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/loginResponse' 
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'      
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+      security:
+        - BearerAuth: []                
+  /refresh:
+    post:
+      summary: Generate a new access token
+      description: Generates a new access token using a valid refresh token.
+      parameters:
+        - name: refresh_token
+          in: header
+          required: true
+          description: Bearer refresh_token for authentication.
+          schema:
+            type: string
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...      
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: New access token generated. 
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/refreshResponse'         
+        '400':
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error400'         
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error403'  
+  /dashboard:
+    get:
+      summary: Get dashboard information
+      description: Retrieves different data for your dashboard about revenues over different intervals, bestselling products, etc. 
+      parameters:
+        - name: access_token
+          in: header
+          required: true
+          description: Bearer access_token for authentication.
+          schema:
+            type: string
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...         
+      security:
+        - BearerAuth: [access_token]
+      responses:
+        '200':
+          description: Dashboard information retrieved.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/dashboardResponse'         
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error403'      
+  /orders:
+    get:
+      summary: Index orders
+      description: Returns an array containing all of your orders. You can use different query parameters to filter search results. 
+      parameters:
+        - name: access_token
+          in: header
+          required: true
+          description: Bearer access_token for authentication.
+          schema:
+            type: string
+          example: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...   
+        - in: query
+          name: page[number]
+          description: The number of pages to return. 
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: filter[product_name]
+          description: Filter orders by the product name.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: filter[status]
+          description: Filter orders by status.
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: filter[date]
+          description: Filter orders by date (formatted as YYYY-MM-DD).
+          required: false
+          schema:
+            type: string
+        - in: query
+          name: filter[price]
+          description: Filter orders by price.
+          required: false
+          schema:
+            type: number
+      responses:
+        '200':
+          description: A list of orders.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ordersResponse'
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error401'
+        '403':
+          description: Forbidden
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error403'                     
+      security:
+        - BearerAuth: [access_token]
+components:
+  schemas:
+    loginResponse:
+      type: object
+      description: Response object
+      properties:
+        access_token:
+          type: string
+          description: A JSON Web Token (JWT) for accessing protected resources in your account. This token is only valid for 15 minutes. 
+          example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...'
+        refresh_token:
+          type: string
+          description: Refresh token for obtaining new access tokens. This token is only valid for 30 days.
+          example: '7a1a9e9c-8a03-4a83-aa51-4c0c82eef29e'
+    refreshResponse:
+      type: object
+      description: Response object
+      properties:
+        access_token:
+          type: string
+          description: A JSON Web Token (JWT) for accessing protected resources in your account. This token is only valid for 15 minutes. 
+          example: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9...'    
+    dashboardResponse:
+      type: object
+      properties:
+        today:
+          type: object
+          properties:
+            revenue_usd:
+              type: number
+              description: Revenue for today in USD.
+            number_of_orders:
+              type: integer
+              description: Number of orders today.
+        last_week:
+          type: object
+          properties:
+            revenue_usd:
+              type: number
+              description: Revenue for the last week in USD.
+            number_of_orders:
+              type: integer
+              description: Number of orders in the last week.
+        last_month:
+          type: object
+          properties:
+            revenue_usd:
+              type: number
+              description: Revenue for the last month in USD.
+            number_of_orders:
+              type: integer
+              description: Number of orders in the last month.
+        last_7_days:
+          type: number
+          description: Revenue for the last 7 days in USD.
+        last_12_months:
+          type: number
+          description: Revenue for the last 12 months in USD.
+        bestsellers:
+          type: array
+          items:
+            type: object
+            properties:
+              product_name:
+                type: string
+                description: Name of the best-selling product.
+              units_sold:
+                type: integer
+                description: Number of units sold.
+              price:
+                type: number
+                description: Price of the product in USD.
+              total_revenue:
+                type: number
+                description: Total revenue generated by the product.
+      example:
+        today:
+          revenue_usd: 150.00
+          number_of_orders: 10
+        last_week:
+          revenue_usd: 950.00
+          number_of_orders: 70
+        last_month:
+          revenue_usd: 3500.00
+          number_of_orders: 250
+        last_7_days: 1200.00
+        last_12_months: 15000.00
+        bestsellers:
+          - product_name: 'Haribo gummy bears'
+            units_sold: 100
+            price: 15.00
+            total_revenue: 1500.00
+          - product_name: 'Snickers'
+            units_sold: 80
+            price: 20.00
+            total_revenue: 1600.00         
+    ordersResponse:
+      type: array
+      items:
+        type: object
+        properties:
+          order_id:
+            type: string
+            description: Unique identifier for the order.
+          product_name:
+            type: string
+            description: Name of the product in the order.
+          status:
+            type: string
+            description: Status of the order.
+            enum:
+              - Processing
+              - Shipped
+              - Delivered
+          date:
+            type: string
+            format: date
+            description: Date of the order.
+          price:
+            type: number
+            format: float
+            description: Price of the order.
+        example:
+          - order_id: 4c585aca-5d39-11ee-8c99-0242ac120002
+            product_name: "Licorice candy"
+            status: "Shipped"
+            date: "2023-09-28"
+            price: 50.0
+          - order_id: 587aee4e-5d39-11ee-8c99-0242ac120002
+            product_name: "Haribo Gummy bears"
+            status: "Delivered"
+            date: "2023-09-29"
+            price: 75.5    
+    Error400:
+      type: object
+      description: Bad Request
+      properties:
+        error:
+          type: string
+          description: Error message for a bad request.
+          example: 'Bad Request: The request parameters are invalid or missing.'   
+    Error401:
+      type: object
+      description: Unauthorized
+      properties:
+        error:
+          type: string
+          description: Error message for unauthorized access.
+          example: 'Unauthorized: Invalid or expired token. Please log in again.'  
+    Error403:
+      type: object
+      description: Forbidden
+      properties:
+        error:
+          type: string
+          description: Error message for forbidden access.
+          example: 'Forbidden: You do not have permission to access this resource.'
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT                                                    
