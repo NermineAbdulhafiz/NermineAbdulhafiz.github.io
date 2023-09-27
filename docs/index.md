@@ -11,8 +11,8 @@ This is the homepage of our API documentation site. Here you can find informatio
 
 Use the links below to navigate our documentation:
 
-- [API Reference](/docs/api-reference.md)
-- [User Guide](/docs/user-guide.md)
+- [API Reference](./api-reference.html)
+- [User Guide](./user-guide.md)
 
 ## Getting Started
 

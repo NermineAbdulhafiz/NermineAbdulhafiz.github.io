@@ -16,7 +16,7 @@ navigation:
     url: /docs/user-guide.md
 
   - title: API Reference
-    url: /docs/api-reference.md
+    url: /docs/api-reference.html
 
 # Theme settings
 theme: jekyll-theme-minimal
