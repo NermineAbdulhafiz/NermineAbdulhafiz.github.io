@@ -1,8 +1,6 @@
 # Site settings
 title: Freddy Store API Documentation
 description: A comprehensive guide to using our APIs
-baseurl: /docs
-url: https://nermineabdulhafiz.github.io
 
 # Markdown settings
 markdown: kramdown
