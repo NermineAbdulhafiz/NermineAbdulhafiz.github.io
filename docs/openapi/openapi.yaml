@@ -54,6 +54,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error401'
+      security:
+        - BearerAuth: []                
   /refresh:
     post:
       summary: Generate a new access token
