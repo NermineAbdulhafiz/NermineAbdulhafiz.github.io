@@ -1,9 +1,9 @@
 # Site settings
-title: Freddy Candy Shop Documentation Site 
+title: Freddy Candy Shop API Documentation Site 
 description: A comprehensive guide to our products.
 logo: 
 baseurl: /docs
-url: https://username.github.io/my-docs
+url: https://nermineabdulhafiz.github.io
 
 # Markdown settings
 markdown: kramdown
@@ -13,9 +13,6 @@ kramdown:
 
 # Navigation menu
 navigation:
-
-  - title: Getting Started
-    url: docs/getting-started.md
 
   - title: User Guide
     url: docs/user-guide.md
